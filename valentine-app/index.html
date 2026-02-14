@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Website</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            background-color: #f7e6e6;
+            text-align: center;
+            transition: background 1s ease-in-out;
+        }
+        .message {
+            font-size: 2.5em;
+            color: #d6336c;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .teddy {
+            width: 150px;
+            height: 150px;
+            background-image: url('https://www.example.com/teddy.png'); /* Replace with a real teddy image link */
+            background-size: cover;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .heart {
+            position: absolute;
+            bottom: 20px;
+            left: 40px;
+            font-size: 1.5em;
+            color: red;
+        }
+        .buttons {
+            margin-top: 30px;
+        }
+        .buttons button {
+            font-size: 1.5em;
+            margin: 10px;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+        .no {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .yes {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .no:active {
+            transform: scale(1.1);
+        }
+        .yes:active {
+            transform: scale(1.1);
+        }
+        .flame-heart {
+            font-size: 2em;
+            color: #ff5733;
+        }
+        .cry-face {
+            font-size: 2em;
+            color: #6c757d;
+        }
+        .celebration {
+            display: none;
+            font-size: 3em;
+            color: #28a745;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .celebration img {
+            width: 100%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="teddy"></div>
+        <div class="message">Wiem, will you be my Valentine?</div> <!-- Updated message -->
+        <div class="buttons">
+            <button class="no" id="noButton" onclick="handleNo()">No 😢</button>
+            <button class="yes" id="yesButton" onclick="handleYes()">Yes ❤️‍🔥</button>
+        </div>
+        <div class="celebration" id="celebration">
+            <div>YAAAY!! 🎉❤️</div>
+            <img src="https://www.example.com/celebration-image.jpg" alt="Valentine's Celebration"> <!-- Replace with a real celebration image link -->
+        </div>
+    </div>
+
+    <script>
+        function handleNo() {
+            document.getElementById("noButton").classList.add("cry-face");
+            document.getElementById("yesButton").disabled = true;
+            setTimeout(function() {
+                document.getElementById("noButton").classList.remove("cry-face");
+                document.getElementById("noButton").classList.add("flame-heart");
+                document.getElementById("yesButton").disabled = false;
+            }, 1000);
+        }
+
+        function handleYes() {
+            document.body.style.backgroundColor = "#ffebf0";
+            document.getElementById("celebration").style.display = "block";
+            document.getElementById("noButton").disabled = true;
+            document.getElementById("yesButton").disabled = true;
+        }
+    </script>
+</body>
+</html>
